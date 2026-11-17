@@ -201,7 +201,8 @@ Cada integrante indica o que escreveu ou revisou, cita os IDs e descreve como co
 | Eduarda Stalliviere<br>@eduardalagiewk4 | Organizei o documento a partir do modelo e revisei as seções 1, 2 e 7 (usuário, recorte e escopo). | Conferi se o recorte bate com o Dossiê e a apresentação de 10/11. | |
 | Guilherme Saldanha<br>@usuario | | | |
 | João Pedro Souza<br>@usuario | | | |
-| Maria Luísa Barros<br>@marialuisaram0s | | | |
+| Maria Luísa Barros<br>@marialuisaram0s | Revisei os requisitos RF01 a RF08 e RNF01 a RNF07. | Conferi se cada RF da v0.1 tem pelo menos um critério de aceitação que o testa e se cada RNF tem forma de verificação. | |
+
 
 ## 10 Envio e avaliação
 
