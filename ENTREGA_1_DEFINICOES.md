@@ -184,12 +184,12 @@ As tarefas T06 a T11 são o plano de implementação da v0.1.
 
 ### Registro da revisão
 
-*(Preencher com uma revisão real feita pela equipe. Exemplo do tipo de registro esperado: "Ao revisar a RN01, decidimos que 00h00 já é inativo e criamos o CA09 para testar o limite de entrada, 21h59".)*
+Na revisão de 16/11, a divisão de tarefas da seção 8 foi ajustada: as tarefas de definição (T01 a T05) ficaram com Eduarda, Maria Luísa e Ana Luísa, que fizeram e revisaram esta entrega. Ana Luísa recalculou os casos de limite de horário (CA04, CA05 e CA07) e confirmou as bordas da RN01 (21h59 inativo, 22h00 ativo). Maria Luísa conferiu que cada RF da v0.1 tem pelo menos um critério de aceitação. Eduarda conferiu o recorte com o Dossiê e a apresentação de 10/11.
+
 
 ### Registro de uso de IA
 
-A equipe usou o Claude para adaptar o modelo da cafeteria ao projeto, a partir do Dossiê (Artefato III) e da apresentação de 10/11.
-*(Preencher: o que a equipe aceitou, o que corrigiu ou descartou, e como conferiu. Por exemplo: "recalculamos à mão os CA04, CA05 e CA07 com a tabela de saídas".)*
+A equipe usou o Claude para redigir a primeira versão deste documento, adaptando o modelo da cafeteria ao projeto a partir do Dossiê (Artefato III) e da apresentação de 10/11, e também como apoio para aprender o fluxo de commits no GitHub. A equipe revisou o conteúdo: aceitou a estrutura, as regras e os critérios de aceitação, e ajustou a divisão de tarefas da seção 8 para refletir quem participou desta entrega. Para verificar, Ana Luísa recalculou à mão os horários dos CA04, CA05 e CA07 com a tabela de saídas, Maria Luísa conferiu a ligação entre cada RF e os critérios de aceitação, e Eduarda conferiu o recorte com o Dossiê e a apresentação de 10/11.
 
 ### Evidências de autoria e coautoria
 
