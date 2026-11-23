@@ -76,7 +76,7 @@ Os testes estão em `testes.js` e rodam ao abrir `testes.html`. Cada caso usa um
 **Placar:** 11 de 11 testes passaram.
 
 - Os dois testes mínimos pedidos são o **CA02** (fluxo principal) e o **CA08** (condição com comportamento diferente).
-- Execuções registradas: os resultados observados acima vieram da primeira execução, feita com apoio do Claude em 23/11. *(Preencher: quem reexecutou `testes.html` no navegador, em que data, e o placar observado.)*
+- Execuções registradas: os resultados observados acima vieram da primeira execução, feita com apoio do Claude em 23/11. Reexecução: Maria Luísa abriu testes.html no navegador em 23/11/2026 e observou 11 de 11 testes aprovados.
 
 **Teste manual na tela (para a demonstração):** em `index.html`, escolher Boa Viagem, Sábado, 23:45 e tocar em Consultar. Esperado: "Ponto Seguro: Ativo", próximo ônibus **00h20**, linha CJ-01, Baia 1 e a rota luminosa.
 
@@ -101,7 +101,7 @@ Cada integrante indica o que fez (código, teste ou correção), o que revisou e
 |---|---|---|---|---|
 | Ana Luísa Raposo<br>@almar-sys | Subi dados.js (base simulada) e consulta.js (fluxo da consulta). | Conferi os dados de cada bairro com a tabela da entrega 1 e a ordem das regras em consultar(). | Previ e testei no site o CA06 (Madalena, sexta 23:00 → app) e o CA07 (Olinda, sábado 23:55 → app, sem mais saídas). | |
 | Eduarda Stalliviere<br>@eduardalagiewk4 | | | | |
-| Maria Luísa Barros<br>@marialuisaram0s | | | | |
+| Maria Luísa Barros<br>@marialuisaram0s | Subi horarios.js (próximo horário, RN04) e testes.html/testes.js (testes dos critérios). | Revisei a função proximaSaida() e a conversão que coloca 00h20 depois de 23h59. | Rodei testes.html no navegador (11 de 11) e previ e testei no site o CA05 (Boa Viagem, sábado 23:45 → 00h20). | |
 
 ## 8 Registro de uso de IA
 
