@@ -1,120 +1,225 @@
-/* estilo.css — Tela responsiva do Ponto Seguro (T10, RNF02) */
+/* estilo.css — Tela responsiva do Ponto Seguro (T10, RNF02)
+   Tema "vaga-lume": noite azul-escura com pontos de luz amarela. */
 
 :root {
-  --fundo: #0f1b2b;
-  --cartao: #18283d;
-  --borda: #2a3e58;
+  --fundo: #0b1424;
+  --fundo-2: #111d33;
+  --cartao: rgba(24, 38, 62, .82);
+  --borda: #263a58;
   --texto: #eef2f7;
-  --texto-suave: #a9b7c9;
-  --luz: #ffd166;        /* amarelo "vaga-lume" */
+  --texto-suave: #9fb0c6;
+  --luz: #ffd166;            /* amarelo "vaga-lume" */
+  --luz-brilho: rgba(255, 209, 102, .35);
   --ativo: #4ade80;
   --inativo: #f87171;
   --aviso: #fbbf24;
+  --raio: 16px;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--fundo);
+  min-height: 100vh;
   color: var(--texto);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  background-color: var(--fundo);
+  /* Pontos de luz no céu noturno */
+  background-image:
+    radial-gradient(circle at 85% 6%, rgba(255, 209, 102, .18), transparent 32%),
+    radial-gradient(circle at 10% 30%, rgba(255, 209, 102, .07), transparent 26%),
+    linear-gradient(180deg, var(--fundo-2), var(--fundo) 60%);
+  background-attachment: fixed;
 }
 
 .pagina {
   max-width: 520px;
   margin: 0 auto;
-  padding: 24px 16px 40px;
+  padding: 28px 16px 40px;
 }
 
-.selo {
+/* Cabeçalho */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   margin: 0;
   color: var(--luz);
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
+.vaga-lume {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--luz);
+  box-shadow: 0 0 10px 3px var(--luz-brilho), 0 0 24px 8px rgba(255, 209, 102, .15);
+  animation: piscar 3s ease-in-out infinite;
+}
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vaga-lume { animation: none; }
+}
 
-h1 { margin: 6px 0 4px; font-size: 28px; line-height: 1.2; }
-.subtitulo { margin: 0 0 20px; color: var(--texto-suave); }
+h1 { margin: 10px 0 6px; font-size: 30px; line-height: 1.15; letter-spacing: -.01em; }
+.subtitulo { margin: 0 0 22px; color: var(--texto-suave); }
 
+/* Cartões */
 .cartao {
   background: var(--cartao);
   border: 1px solid var(--borda);
-  border-radius: 14px;
-  padding: 18px;
+  border-radius: var(--raio);
+  padding: 20px;
   margin-bottom: 16px;
+  backdrop-filter: blur(6px);
 }
 
+/* Formulário */
 label { display: block; margin: 0 0 6px; font-weight: 600; font-size: 14px; }
 
 select, input {
   width: 100%;
-  min-height: 46px;
+  min-height: 48px;
   margin-bottom: 14px;
   padding: 10px 12px;
   border: 1px solid var(--borda);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--fundo);
   color: var(--texto);
   font-size: 16px;
+  color-scheme: dark;
 }
+select:hover, input:hover { border-color: #38527a; }
 
 .linha-dupla { display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; }
-.dica { margin: -4px 0 14px; color: var(--texto-suave); font-size: 13px; }
+.dica { margin: -4px 0 16px; color: var(--texto-suave); font-size: 13px; }
 
 button {
   width: 100%;
-  min-height: 48px;
+  min-height: 52px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--luz);
-  color: #1a1a1a;
+  color: #1a1405;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .35);
+  transition: transform .1s ease, background-color .2s ease;
 }
+button:hover { background: #ffdb85; }
+button:active { transform: translateY(1px); }
+
 button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible {
   outline: 3px solid var(--luz);
   outline-offset: 2px;
 }
 
 /* Resultado */
+.resultado-entrando { animation: entrar .25s ease-out; }
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resultado-entrando { animation: none; }
+}
+
 .status {
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 4px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 5px 12px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 700;
 }
-.status.ativo { background: rgba(74, 222, 128, .15); color: var(--ativo); }
-.status.inativo { background: rgba(248, 113, 113, .15); color: var(--inativo); }
+.status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.status.ativo { background: rgba(74, 222, 128, .12); color: var(--ativo); }
+.status.inativo { background: rgba(248, 113, 113, .12); color: var(--inativo); }
 
 .destaque { margin: 0; color: var(--texto-suave); font-size: 14px; }
-.horario-grande { margin: 0 0 12px; font-size: 40px; font-weight: 800; color: var(--luz); line-height: 1.1; }
+.horario-grande {
+  margin: 0 0 16px;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--luz);
+  font-variant-numeric: tabular-nums;
+}
 
-.dados { margin: 0 0 4px; }
-.dados dt { color: var(--texto-suave); font-size: 13px; }
-.dados dd { margin: 0 0 10px; font-weight: 600; }
+.mensagem { margin: 0 0 10px; }
+.mensagem-forte { margin: 0 0 14px; font-size: 18px; font-weight: 700; }
 
-.erro { border-color: var(--inativo); }
+/* Linha / embarque em blocos */
+.dados {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+.dados div {
+  padding: 12px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: rgba(11, 20, 36, .55);
+}
+.dados dt { color: var(--texto-suave); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.dados dd { margin: 2px 0 0; font-weight: 700; }
+
+.erro { border-color: rgba(248, 113, 113, .6); }
 .erro p { margin: 0; color: var(--inativo); font-weight: 600; }
 
-.rota h2 { margin: 0 0 8px; font-size: 17px; }
-.rota ol { margin: 0; padding-left: 20px; }
-.rota li { margin-bottom: 6px; }
+/* Rota luminosa: linha do tempo com pontos de luz */
+.rota h2 { margin: 0 0 14px; font-size: 17px; }
+.rota ol { list-style: none; margin: 0; padding: 0; }
+.rota li {
+  position: relative;
+  padding: 0 0 16px 30px;
+}
+.rota li:last-child { padding-bottom: 0; }
+.rota li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--luz);
+}
+.rota li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 20px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(var(--luz-brilho), rgba(255, 209, 102, .08));
+}
 
 .aviso-simulado {
-  margin: 12px 0 0;
-  padding-top: 10px;
+  margin: 16px 0 0;
+  padding-top: 12px;
   border-top: 1px dashed var(--borda);
   color: var(--aviso);
   font-size: 13px;
 }
 
-.rodape { color: var(--texto-suave); font-size: 13px; }
+/* Rodapé */
+.rodape { margin-top: 28px; color: var(--texto-suave); font-size: 13px; }
+.rodape p { margin: 0 0 8px; }
 .rodape a { color: var(--luz); }

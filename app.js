@@ -34,8 +34,15 @@ function preencherDiaEHorario() {
   campoHorario.value = `${hh}:${mm}`;
 }
 
+// Um bloco "rótulo + valor" (ex.: Linha corujão / CJ-01 ...).
+function bloco(rotulo, valor) {
+  const item = criar("div");
+  item.append(criar("dt", null, rotulo), criar("dd", null, valor));
+  return item;
+}
+
 function cartaoDaRota(passos) {
-  const cartao = criar("div", "cartao rota");
+  const cartao = criar("div", "cartao rota resultado-entrando");
   cartao.append(criar("h2", null, "Rota luminosa até o ponto"));
   const lista = criar("ol");
   for (const passo of passos) lista.append(criar("li", null, passo));
@@ -48,20 +55,20 @@ function mostrarResultado(r) {
 
   // Entrada inválida (RN03).
   if (r.tipo === "erro") {
-    const cartao = criar("div", "cartao erro");
+    const cartao = criar("div", "cartao erro resultado-entrando");
     cartao.append(criar("p", null, r.mensagem));
     areaResultado.append(cartao);
     return;
   }
 
-  const cartao = criar("div", "cartao");
+  const cartao = criar("div", "cartao resultado-entrando");
   const ativo = r.status === "Ativo";
   cartao.append(criar("span", ativo ? "status ativo" : "status inativo", `Ponto Seguro: ${r.status}`));
 
   if (r.tipo === "inativo") {
     // RN02: sem baia e sem horário de corujão.
-    cartao.append(criar("p", null, r.mensagem));
-    cartao.append(criar("p", null, r.opcoes));
+    cartao.append(criar("p", "mensagem-forte", r.mensagem));
+    cartao.append(criar("p", "mensagem", r.opcoes));
   }
 
   if (r.tipo === "corujao") {
@@ -69,17 +76,15 @@ function mostrarResultado(r) {
     cartao.append(criar("p", "destaque", "Próximo ônibus"));
     cartao.append(criar("p", "horario-grande", r.proximaSaida));
     const dados = criar("dl", "dados");
-    dados.append(criar("dt", null, "Linha corujão"), criar("dd", null, r.linha));
-    dados.append(criar("dt", null, "Onde embarcar"), criar("dd", null, r.baia));
+    dados.append(bloco("Linha corujão", r.linha), bloco("Onde embarcar", r.baia));
     cartao.append(dados);
   }
 
   if (r.tipo === "app") {
     // RN05: alternativa por aplicativo.
-    cartao.append(criar("p", null, r.motivo));
+    cartao.append(criar("p", "mensagem-forte", r.motivo));
     const dados = criar("dl", "dados");
-    dados.append(criar("dt", null, "Alternativa"), criar("dd", null, "Pedir carro por aplicativo"));
-    dados.append(criar("dt", null, "Onde embarcar"), criar("dd", null, r.local));
+    dados.append(bloco("Alternativa", "Pedir carro por aplicativo"), bloco("Onde embarcar", r.local));
     cartao.append(dados);
   }
 
