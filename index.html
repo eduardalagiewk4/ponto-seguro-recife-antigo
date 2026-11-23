@@ -3,46 +3,247 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1829">
+  <meta name="description" content="Consulte a linha corujão, o próximo horário e a baia de embarque no Ponto Seguro do Recife Antigo.">
   <title>Ponto Seguro Recife Antigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Overpass:wght@600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-  <main class="pagina">
-    <header class="topo">
-      <p class="marca"><span class="vaga-lume" aria-hidden="true"></span>Ponto Seguro · Recife Antigo</p>
-      <h1>Como voltar para casa?</h1>
-      <p class="subtitulo">Escolha o bairro de destino e veja a linha, o próximo horário e onde embarcar.</p>
-    </header>
+  <a class="pular" href="#consulta">Pular para a consulta</a>
 
-    <form id="formulario" class="cartao" novalidate>
-      <label for="bairro">Bairro de destino</label>
-      <select id="bairro">
-        <option value="">Escolha o bairro</option>
-      </select>
+  <header class="barra">
+    <div class="barra-conteudo">
+      <a class="marca" href="#topo">
+        <span class="placa-mini" aria-hidden="true">P</span>
+        <span>Ponto Seguro <span class="marca-local">Recife Antigo</span></span>
+      </a>
+      <nav aria-label="Seções">
+        <a href="#problema">O problema</a>
+        <a href="#mapa">Mapa</a>
+        <a class="barra-acao" href="#consulta">Consultar</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="linha-dupla">
-        <div>
-          <label for="dia">Dia</label>
-          <select id="dia"></select>
+  <main id="topo">
+    <!-- 1. Abertura: o ponto funcionando -->
+    <section class="abertura">
+      <div class="abertura-texto">
+        <h1>Saia da noite sabendo como voltar.</h1>
+        <p class="abertura-lead">Um ponto de espera iluminado, com orientadores, na Av. Alfredo Lisboa. Antes de sair do bar, veja qual corujão leva você para casa, a que horas ele passa e em qual baia embarcar.</p>
+        <p id="status-ponto" class="status-ponto" role="status">
+          <span class="status-luz" aria-hidden="true"></span>
+          <span id="status-texto">Verificando o horário do ponto…</span>
+        </p>
+        <a class="botao" href="#consulta">Consultar minha volta</a>
+        <p class="abertura-nota">Sextas e sábados, das 22h às 00h · entre o Paço do Frevo e o Terminal de Passageiros</p>
+      </div>
+
+      <figure class="painel" aria-labelledby="painel-titulo">
+        <div class="painel-topo">
+          <p id="painel-titulo" class="painel-titulo">Saídas do Ponto Seguro</p>
+          <p id="painel-quando" class="painel-quando"></p>
         </div>
-        <div>
-          <label for="horario">Horário</label>
-          <input id="horario" type="time">
+        <table class="painel-tabela">
+          <thead>
+            <tr><th scope="col">Linha</th><th scope="col">Destino</th><th scope="col">Saída</th><th scope="col">Baia</th></tr>
+          </thead>
+          <tbody id="painel-linhas"></tbody>
+        </table>
+        <figcaption class="painel-legenda">Horários simulados para a v0.1. Madalena e Várzea: embarque por aplicativo.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 2. O problema: o que a pesquisa de campo encontrou -->
+    <section id="problema" class="secao">
+      <div class="secao-cabeca">
+        <h2>O que vimos na rua</h2>
+        <p>Quando bares e eventos fecham, o público se espalha pela Av. Alfredo Lisboa. O problema não é chegar ao Recife Antigo. É sair dele com previsibilidade.</p>
+      </div>
+      <ol class="notas">
+        <li class="nota">
+          <p class="nota-tema">Iluminação</p>
+          <p class="nota-texto">Trecho com luz fraca e calçada irregular entre o Paço do Frevo e o Terminal de Passageiros.</p>
+        </li>
+        <li class="nota">
+          <p class="nota-tema">Informação</p>
+          <p class="nota-texto">Paradas sem abrigo e sem informação sobre as linhas noturnas e seus horários.</p>
+        </li>
+        <li class="nota">
+          <p class="nota-tema">Estratégias defensivas</p>
+          <p class="nota-texto">Chamada de vídeo e grupo compacto na Rua da Moeda (21/08, 23h45). Corrida de aplicativo de cerca de 250 m, pedida por medo.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 3. Como funciona: três paradas -->
+    <section class="secao">
+      <div class="secao-cabeca">
+        <h2>Três paradas até o embarque</h2>
+      </div>
+      <ol class="trajeto">
+        <li>
+          <span class="trajeto-ponto" aria-hidden="true">1</span>
+          <h3>Escolha o bairro</h3>
+          <p>Boa Viagem, Casa Amarela, Afogados, Olinda, Madalena ou Várzea.</p>
+        </li>
+        <li>
+          <span class="trajeto-ponto" aria-hidden="true">2</span>
+          <h3>Veja ônibus e baia</h3>
+          <p>A linha corujão, o próximo horário e onde embarcar. Sem corujão, o local do aplicativo.</p>
+        </li>
+        <li>
+          <span class="trajeto-ponto" aria-hidden="true">3</span>
+          <h3>Siga a rota iluminada</h3>
+          <p>O caminho mais claro do Polo da Alfândega até o ponto, com orientadores de colete.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 4. A consulta -->
+    <section id="consulta" class="secao consulta">
+      <div class="secao-cabeca">
+        <h2>Consulte sua volta</h2>
+        <p>O dia e o horário vêm do relógio do celular. Mude os dois para testar outros cenários.</p>
+      </div>
+
+      <div class="consulta-grade">
+        <form id="formulario" class="formulario" novalidate>
+          <label for="bairro">Bairro de destino</label>
+          <select id="bairro">
+            <option value="">Escolha o bairro</option>
+          </select>
+
+          <div class="linha-dupla">
+            <div class="campo">
+              <label for="dia">Dia</label>
+              <select id="dia"></select>
+            </div>
+            <div class="campo">
+              <label for="horario">Horário</label>
+              <input id="horario" type="time">
+            </div>
+          </div>
+
+          <button class="botao botao-cheio" type="submit">Consultar</button>
+        </form>
+
+        <div id="resultado" class="resultado" aria-live="polite">
+          <p class="resultado-vazio">O resultado aparece aqui: status do ponto, linha, horário e baia.</p>
         </div>
       </div>
-      <p class="dica">O dia e o horário vêm do relógio do celular. Você pode mudar para testar outros cenários.</p>
+    </section>
 
-      <button type="submit">Consultar</button>
-    </form>
+    <!-- 5. Mapa esquemático -->
+    <section id="mapa" class="secao">
+      <div class="secao-cabeca">
+        <h2>Onde fica o ponto</h2>
+        <p>Do Polo da Alfândega até a Av. Alfredo Lisboa, pela rota mais iluminada.</p>
+      </div>
 
-    <section id="resultado" aria-live="polite"></section>
+      <figure class="mapa">
+        <svg viewBox="0 0 360 440" role="img" aria-labelledby="mapa-titulo mapa-desc">
+          <title id="mapa-titulo">Esquema do trecho do Ponto Seguro</title>
+          <desc id="mapa-desc">A Av. Alfredo Lisboa vai do Paço do Frevo ao Terminal de Passageiros, ao lado do cais. No meio fica o Ponto Seguro, com as baias 1, 2 e 3 e a área de embarque por aplicativo. A rota luminosa sai do Polo da Alfândega e chega ao ponto.</desc>
 
-    <footer class="rodape">
-      <p><strong>Dados simulados.</strong> Linhas, horários e baias foram criados pela equipe para a v0.1 e não são oficiais.</p>
-      <p><a href="testes.html">Ver testes automáticos (CA01 a CA10)</a></p>
-      <p>Vaga-lumes Figitais · Fundamentos de Programação · CESAR School</p>
-    </footer>
+          <!-- cais -->
+          <rect x="292" y="0" width="68" height="440" class="m-agua"/>
+          <text x="330" y="220" class="m-rotulo-agua" transform="rotate(90 330 220)">Cais do porto</text>
+
+          <!-- casario -->
+          <g class="m-casario">
+            <rect x="24" y="34" width="34" height="46" rx="2" fill="#d98b8b"/>
+            <rect x="62" y="40" width="28" height="40" rx="2" fill="#e6c36a"/>
+            <rect x="94" y="30" width="36" height="50" rx="2" fill="#86bfae"/>
+            <rect x="134" y="38" width="30" height="42" rx="2" fill="#a9b6e0"/>
+            <rect x="24" y="120" width="40" height="44" rx="2" fill="#86bfae"/>
+            <rect x="68" y="126" width="30" height="38" rx="2" fill="#d98b8b"/>
+            <rect x="102" y="118" width="34" height="46" rx="2" fill="#e6c36a"/>
+            <rect x="24" y="352" width="36" height="42" rx="2" fill="#a9b6e0"/>
+            <rect x="64" y="358" width="32" height="36" rx="2" fill="#86bfae"/>
+            <rect x="100" y="350" width="40" height="44" rx="2" fill="#d98b8b"/>
+          </g>
+
+          <!-- avenida -->
+          <line x1="240" y1="24" x2="240" y2="416" class="m-avenida"/>
+          <text x="262" y="284" class="m-rotulo-av" transform="rotate(90 262 284)">Av. Alfredo Lisboa</text>
+
+          <!-- rota luminosa -->
+          <path d="M70 286 H150 V214 H226" class="m-rota"/>
+          <g class="m-poste">
+            <circle cx="96" cy="286" r="3.5"/>
+            <circle cx="124" cy="286" r="3.5"/>
+            <circle cx="150" cy="258" r="3.5"/>
+            <circle cx="150" cy="230" r="3.5"/>
+            <circle cx="184" cy="214" r="3.5"/>
+            <circle cx="208" cy="214" r="3.5"/>
+          </g>
+
+          <!-- Polo da Alfândega -->
+          <circle cx="62" cy="286" r="9" class="m-parada"/>
+          <text x="30" y="316" class="m-rotulo">Polo da</text>
+          <text x="30" y="330" class="m-rotulo">Alfândega</text>
+
+          <!-- Paço do Frevo -->
+          <circle cx="240" cy="58" r="8" class="m-parada"/>
+          <text x="226" y="62" class="m-rotulo m-direita">Paço do Frevo</text>
+
+          <!-- Terminal de Passageiros -->
+          <circle cx="240" cy="388" r="8" class="m-parada"/>
+          <text x="226" y="384" class="m-rotulo m-direita">Terminal de</text>
+          <text x="226" y="398" class="m-rotulo m-direita">Passageiros</text>
+
+          <!-- Ponto Seguro -->
+          <rect x="164" y="176" width="64" height="26" rx="5" class="m-placa"/>
+          <rect x="167" y="179" width="58" height="20" rx="3" class="m-placa-filete"/>
+          <text x="196" y="193" class="m-placa-texto">Ponto</text>
+          <circle cx="240" cy="214" r="13" class="m-ponto"/>
+          <text x="240" y="218.5" class="m-ponto-p">P</text>
+
+          <!-- baias e app -->
+          <g class="m-baias">
+            <rect x="250" y="172" width="34" height="18" rx="3"/>
+            <rect x="250" y="194" width="34" height="18" rx="3"/>
+            <rect x="250" y="216" width="34" height="18" rx="3"/>
+          </g>
+          <text x="267" y="185" class="m-baia-texto">B1</text>
+          <text x="267" y="207" class="m-baia-texto">B2</text>
+          <text x="267" y="229" class="m-baia-texto">B3</text>
+          <rect x="250" y="246" width="34" height="28" rx="3" class="m-app"/>
+          <text x="267" y="264" class="m-baia-texto m-app-texto">App</text>
+        </svg>
+
+        <figcaption>
+          <ul class="mapa-legenda">
+            <li><span class="leg leg-rota" aria-hidden="true"></span>Rota luminosa</li>
+            <li><span class="leg leg-ponto" aria-hidden="true"></span>Ponto Seguro</li>
+            <li><span class="leg leg-baia" aria-hidden="true"></span>Baias 1, 2 e 3</li>
+            <li><span class="leg leg-app" aria-hidden="true"></span>Embarque por app</li>
+          </ul>
+          <p class="mapa-aviso">Esquema ilustrativo, fora de escala. Posições a validar em campo com a CTTU.</p>
+        </figcaption>
+      </figure>
+    </section>
   </main>
+
+  <footer class="rodape">
+    <div class="rodape-conteudo">
+      <div>
+        <p class="rodape-titulo">Ponto Seguro Recife Antigo</p>
+        <p>Squad Vaga-lumes Figitais · Lente 6, Noite Segura, Cidade Viva</p>
+        <p>Ana Luísa Raposo · Eduarda Stalliviere · Maria Luísa Barros</p>
+        <p>Fundamentos de Programação · ADM Tech · CESAR School</p>
+      </div>
+      <div>
+        <p><strong>Dados simulados.</strong> Linhas, horários e baias foram criados pela equipe para a v0.1 e não são oficiais.</p>
+        <p><a href="testes.html">Ver testes automáticos (CA01 a CA10)</a></p>
+        <p><a href="https://github.com/eduardalagiewk4/ponto-seguro-recife-antigo">Código no GitHub</a></p>
+      </div>
+    </div>
+  </footer>
 
   <!-- A ordem importa: dados e regras primeiro, tela por último. -->
   <script src="dados.js"></script>
