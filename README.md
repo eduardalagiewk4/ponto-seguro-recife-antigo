@@ -5,23 +5,48 @@ Sistema de consulta de mobilidade noturna para quem sai da vida noturna do Bairr
 **Fundamentos de Programação — AV2 · Projeto Lentes · ADM Tech, CESAR School**
 **Lente 6 — Noite Segura, Cidade Viva · Squad Vaga-lumes Figitais (Grupo 6)**
 
+## Acesso
+
+- **Aplicação:** https://eduardalagiewk4.github.io/ponto-seguro-recife-antigo/
+- **Testes automáticos:** https://eduardalagiewk4.github.io/ponto-seguro-recife-antigo/testes.html
+
+## Como executar
+
+**Pelo link:** abrir o endereço acima em qualquer navegador, no celular ou no computador.
+
+**Sem internet:** clicar em **Code → Download ZIP**, descompactar e abrir `index.html` no navegador. Os testes ficam em `testes.html`.
+
+**Dependências:** nenhuma. É HTML, CSS e JavaScript puro, sem instalação.
+
+**Dados necessários:** já vêm no arquivo `dados.js`. São **dados simulados**: linhas, horários e baias criados pela equipe, que não são oficiais.
+
+## Arquivos
+
+| Arquivo | Função |
+|---|---|
+| `index.html`, `estilo.css`, `app.js` | Tela da consulta |
+| `consulta.js` | Fluxo da consulta (entrada → regras → resultado) |
+| `janela.js` | Regra de horário do ponto (RN01) |
+| `horarios.js` | Próximo horário (RN04) |
+| `dados.js` | Base simulada |
+| `testes.html`, `testes.js` | Testes dos critérios de aceitação |
+
 ## Documentação
 
-- [Entrega 1 — Definições e planejamento da v0.1](ENTREGA_1_DEFINICOES.md) (17/11)
+- [Entrega 1 — Definições e planejamento](ENTREGA_1_DEFINICOES.md) (17/11)
+- [Entrega 2 — Versão v0.1](ENTREGA_2_V01.md) (24/11)
+
+## Versões
+
+| Versão | Data | Situação |
+|---|---|---|
+| Definições | 17/11 | Entregue |
+| v0.1 | 24/11 | Tag `v0.1` |
+| v0.2 | 01/12 | A definir após a devolutiva |
 
 ## Recorte
 
 Av. Alfredo Lisboa, entre o Paço do Frevo e o Terminal de Passageiros · sextas e sábados, das 22h às 00h.
-
-## Status
-
-| Versão | Data | Situação |
-|---|---|---|
-| Definições | 17/11 | Entregue neste repositório |
-| v0.1 | 24/11 | Planejada (HTML/CSS/JavaScript, GitHub Pages) |
-| v0.2 | 01/12 | A definir após a devolutiva |
-
-> As linhas, os horários e as baias usados no projeto são **dados simulados**.
 
 ## Integrantes
 

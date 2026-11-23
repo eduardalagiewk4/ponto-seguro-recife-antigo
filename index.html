@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ponto Seguro Recife Antigo</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="topo">
+      <p class="selo">Ponto Seguro · Recife Antigo</p>
+      <h1>Como voltar para casa?</h1>
+      <p class="subtitulo">Escolha o bairro de destino e veja a linha, o próximo horário e onde embarcar.</p>
+    </header>
+
+    <form id="formulario" class="cartao" novalidate>
+      <label for="bairro">Bairro de destino</label>
+      <select id="bairro">
+        <option value="">Escolha o bairro</option>
+      </select>
+
+      <div class="linha-dupla">
+        <div>
+          <label for="dia">Dia</label>
+          <select id="dia"></select>
+        </div>
+        <div>
+          <label for="horario">Horário</label>
+          <input id="horario" type="time">
+        </div>
+      </div>
+      <p class="dica">O dia e o horário vêm do relógio do celular. Você pode mudar para testar outros cenários.</p>
+
+      <button type="submit">Consultar</button>
+    </form>
+
+    <section id="resultado" aria-live="polite"></section>
+
+    <footer class="rodape">
+      <p><strong>Dados simulados.</strong> Linhas, horários e baias foram criados pela equipe para a v0.1 e não são oficiais.</p>
+      <p><a href="testes.html">Ver testes automáticos (CA01 a CA10)</a></p>
+      <p>Vaga-lumes Figitais · Fundamentos de Programação · CESAR School</p>
+    </footer>
+  </main>
+
+  <!-- A ordem importa: dados e regras primeiro, tela por último. -->
+  <script src="dados.js"></script>
+  <script src="janela.js"></script>
+  <script src="horarios.js"></script>
+  <script src="consulta.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
