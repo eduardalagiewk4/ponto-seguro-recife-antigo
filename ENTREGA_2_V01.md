@@ -99,7 +99,7 @@ Cada integrante indica o que fez (código, teste ou correção), o que revisou e
 
 | Integrante | Contribuição técnica | O que revisou | Como verificou | Commit |
 |---|---|---|---|---|
-| Ana Luísa Raposo<br>@almar-sys | | | | |
+| Ana Luísa Raposo<br>@almar-sys | Subi dados.js (base simulada) e consulta.js (fluxo da consulta). | Conferi os dados de cada bairro com a tabela da entrega 1 e a ordem das regras em consultar(). | Previ e testei no site o CA06 (Madalena, sexta 23:00 → app) e o CA07 (Olinda, sábado 23:55 → app, sem mais saídas). | |
 | Eduarda Stalliviere<br>@eduardalagiewk4 | | | | |
 | Maria Luísa Barros<br>@marialuisaram0s | | | | |
 
