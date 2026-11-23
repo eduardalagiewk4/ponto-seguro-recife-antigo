@@ -100,12 +100,12 @@ Cada integrante indica o que fez (código, teste ou correção), o que revisou e
 | Integrante | Contribuição técnica | O que revisou | Como verificou | Commit |
 |---|---|---|---|---|
 | Ana Luísa Raposo<br>@almar-sys | Subi dados.js (base simulada) e consulta.js (fluxo da consulta). | Conferi os dados de cada bairro com a tabela da entrega 1 e a ordem das regras em consultar(). | Previ e testei no site o CA06 (Madalena, sexta 23:00 → app) e o CA07 (Olinda, sábado 23:55 → app, sem mais saídas). | |
-| Eduarda Stalliviere<br>@eduardalagiewk4 | | | | |
+| Eduarda Stalliviere<br>@eduardalagiewk4 | Subi janela.js (regra do horário, RN01), a tela (index.html, estilo.css, app.js), o README e a documentação da v0.1. Publiquei o site no GitHub Pages e subi a nova interface (landing page). | Revisei a regra pontoAtivo(), a publicação do site e a nova interface, incluindo a correção do campo de horário no celular. | Abri o site no celular e previ e testei o CA08 (quinta 23:00 → inativo) e o CA09 (sexta 21:59 → inativo); conferi que os testes continuaram 11 de 11 depois da nova interface. | |
 | Maria Luísa Barros<br>@marialuisaram0s | Subi horarios.js (próximo horário, RN04) e testes.html/testes.js (testes dos critérios). | Revisei a função proximaSaida() e a conversão que coloca 00h20 depois de 23h59. | Rodei testes.html no navegador (11 de 11) e previ e testei no site o CA05 (Boa Viagem, sábado 23:45 → 00h20). | |
 
 ## 8 Registro de uso de IA
 
-*(Preencher: o código da v0.1 foi gerado com o Claude a partir das definições da entrega 1. Registrar o que a equipe aceitou, corrigiu ou descartou, e como testou. Por exemplo: quem rodou `testes.html`, quem fez o teste manual do CA05, se alguém mudou algum valor para ver o teste falhar.)*
+O código da v0.1 foi gerado com o Claude a partir das definições da entrega 1 (requisitos, regras e critérios de aceitação). A equipe aceitou a divisão em arquivos por regra e a página de testes automáticos. Depois, a equipe pediu ao Claude uma nova interface em forma de landing page (painel de saídas, status do ponto, mapa esquemático e correção do campo de horário que passava da caixa no iPhone), sem alterar os arquivos de regras; a Eduarda revisou no celular. Cada integrante revisou o próprio arquivo e testou no site: Ana Luísa conferiu os dados e os CA06 e CA07; Maria Luísa rodou testes.html (11 de 11) e o CA05; Eduarda testou no celular os CA08 e CA09.
 
 ## 9 Proposta de melhoria para a v0.2
 
